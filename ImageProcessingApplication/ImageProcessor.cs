@@ -1,4 +1,3 @@
-using System.Collections.Concurrent;
 using System.Text;
 
 namespace ImageProcessingApplication;
@@ -79,9 +78,9 @@ public class ImageProcessor
         }
         
         //printing info an all the groups
-        Console.WriteLine($"Sepia images: {DisplayGroup(sepiaImages)}");
-        Console.WriteLine($"Blur images: {DisplayGroup(blurImages)}");
-        Console.WriteLine($"Grayscale images: {DisplayGroup(grayscaleImages)}");
+        Console.WriteLine($"Sepia images: ( {DisplayGroup(sepiaImages)})");
+        Console.WriteLine($"Blur images: ( {DisplayGroup(blurImages)})");
+        Console.WriteLine($"Grayscale images: ( {DisplayGroup(grayscaleImages)})");
 
         var tasks = new List<Task>();
         //The groups can run at the same time:
