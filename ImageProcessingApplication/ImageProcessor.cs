@@ -24,10 +24,28 @@ public class ImageProcessor
 
     public async Task ApplyAllFilters()
     {
+        //NACHIN 1
         //Applying of the filters should happen simultaneously 
-        await Parallel.ForEachAsync(Images,
-            new ParallelOptions { MaxDegreeOfParallelism = 10 },
-            async (image, _) => await ApplyFilter(image));
+        // await Parallel.ForEachAsync(Images,
+        //     new ParallelOptions { MaxDegreeOfParallelism = 10 },
+        //     async (image, _) => await ApplyFilter(image));
+
+        //NACHIN 2
+        // var tasks = new List<Task>();
+        // foreach (var image in Images)
+        // {
+        //     tasks.Add(ApplyFilter((image)));
+        // }
+        //await Task.WhenAll(tasks);
+        
+        //NACHIN 3
+        var tasks = new List<Task>();
+        Images.ForEach(image =>
+        {
+            tasks.Add(ApplyFilter((image)));
+        });
+        await Task.WhenAll(tasks);
+
         //Once all images have filters applied you should print out which filter the image has. 
         foreach (var image in Images)
         {
