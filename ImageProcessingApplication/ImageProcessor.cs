@@ -96,7 +96,7 @@ public class ImageProcessor
         
     }
 
-    public string DisplayGroup(ConcurrentBag<Image> images)
+    private string DisplayGroup(ConcurrentBag<Image> images)
     {
         var stringBuilder = new StringBuilder();
         foreach (var image in images)
