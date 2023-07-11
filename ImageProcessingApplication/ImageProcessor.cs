@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Text;
 
 namespace ImageProcessingApplication;
@@ -34,7 +35,7 @@ public class ImageProcessor
         }
     }
 
-    private async Task SetBrightnessGroup(List<Image> imagesGroup)
+    private async Task SetBrightnessGroup(ConcurrentBag<Image> imagesGroup)
     {
         foreach (var image in imagesGroup)
         {
@@ -57,25 +58,27 @@ public class ImageProcessor
 
     public async Task SetBrightnessAll()
     {
-        List<Image> sepiaImages = new List<Image>();
-        List<Image> blurImages = new List<Image>();
-        List<Image> grayscaleImages = new List<Image>();
-        
-        foreach (var image in Images)
-        {
-            switch (image.Filter)
+        ConcurrentBag<Image> sepiaImages = new ConcurrentBag<Image>();
+        ConcurrentBag<Image> blurImages = new ConcurrentBag<Image>();
+        ConcurrentBag<Image> grayscaleImages = new ConcurrentBag<Image>();
+
+        Parallel.ForEach(Images,
+            new ParallelOptions { MaxDegreeOfParallelism = 10 },
+            (image) =>
             {
-                case Filter.SEPIA:
-                    sepiaImages.Add(image);
-                    break;
-                case Filter.BLUR:
-                    blurImages.Add(image);
-                    break;
-                case Filter.GRAYSCALE:
-                    grayscaleImages.Add(image);
-                    break;
-            }
-        }
+                switch (image.Filter)
+                {
+                    case Filter.SEPIA:
+                        sepiaImages.Add(image);
+                        break;
+                    case Filter.BLUR:
+                        blurImages.Add(image);
+                        break;
+                    case Filter.GRAYSCALE:
+                        grayscaleImages.Add(image);
+                        break;
+                }
+            });
         
         //printing info an all the groups
         Console.WriteLine($"Sepia images: ( {DisplayGroup(sepiaImages)})");
@@ -93,7 +96,7 @@ public class ImageProcessor
         
     }
 
-    public string DisplayGroup(List<Image> images)
+    public string DisplayGroup(ConcurrentBag<Image> images)
     {
         var stringBuilder = new StringBuilder();
         foreach (var image in images)
