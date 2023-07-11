@@ -22,6 +22,5 @@ ImageProcessor imageProcessor = new ImageProcessor(images);
 imageProcessor.ApplyAllFilters();
 
 //ONCE FILTERS ARE DONE, SET BRIGHTNESS FOR EACH GROUP SIMULTANEOUSLY, BUT SEQUENTIALLY WITHIN THE GROUP
-await imageProcessor.SetBrightnessAll();
-
 //AFTER EVERYTHING IS DONE PRINT A MESSAGE INDICATING COMPLETION
+await imageProcessor.SetBrightnessAll();
