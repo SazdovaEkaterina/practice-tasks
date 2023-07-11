@@ -12,8 +12,9 @@ public class ImageProcessor
         Images = images;
     }
 
-    private void ApplyFilter(Image image)
+    private async Task ApplyFilter(Image image)
     {
+        await Task.Delay(2500);
         var random = new Random();
         var filters = new List<Filter> { Filter.SEPIA, Filter.GRAYSCALE, Filter.BLUR };
         var filter = filters[random.Next(filters.Count)];
@@ -21,13 +22,12 @@ public class ImageProcessor
         Console.WriteLine($"The filter {filter} has been applied to the image {image.Name}");
     }
 
-    public void ApplyAllFilters()
+    public async Task ApplyAllFilters()
     {
         //Applying of the filters should happen simultaneously 
-        Parallel.ForEach(Images,
-            new ParallelOptions {MaxDegreeOfParallelism = 10},
-            (image) => ApplyFilter(image));
-        
+        await Parallel.ForEachAsync(Images,
+            new ParallelOptions { MaxDegreeOfParallelism = 10 },
+            async (image, _) => await ApplyFilter(image));
         //Once all images have filters applied you should print out which filter the image has. 
         foreach (var image in Images)
         {
@@ -35,7 +35,7 @@ public class ImageProcessor
         }
     }
 
-    private async Task SetBrightnessGroup(ConcurrentBag<Image> imagesGroup)
+    private async Task SetBrightnessGroup(List<Image> imagesGroup)
     {
         foreach (var image in imagesGroup)
         {
@@ -58,9 +58,9 @@ public class ImageProcessor
 
     public async Task SetBrightnessAll()
     {
-        ConcurrentBag<Image> sepiaImages = new ConcurrentBag<Image>();
-        ConcurrentBag<Image> blurImages = new ConcurrentBag<Image>();
-        ConcurrentBag<Image> grayscaleImages = new ConcurrentBag<Image>();
+        List<Image> sepiaImages = new List<Image>();
+        List<Image> blurImages = new List<Image>();
+        List<Image> grayscaleImages = new List<Image>();
 
         Parallel.ForEach(Images,
             new ParallelOptions { MaxDegreeOfParallelism = 10 },
@@ -96,7 +96,7 @@ public class ImageProcessor
         
     }
 
-    private string DisplayGroup(ConcurrentBag<Image> images)
+    private string DisplayGroup(List<Image> images)
     {
         var stringBuilder = new StringBuilder();
         foreach (var image in images)
