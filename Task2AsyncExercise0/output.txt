@@ -1,0 +1,8 @@
+***---Processed Data---***
+Total profit that can be made from all items & stock: $1009808,04000
+Number of items that are out of stock: 1
+
+***---Price Statistics---***
+Min item price: $249,99
+Max item price: $54999
+Average item price: $16399,55

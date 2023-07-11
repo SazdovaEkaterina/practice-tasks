@@ -1,0 +1,9 @@
+Shirt 499,99 32
+Pants 799,99 21
+Shoes 399,99 14
+Bag 649,99 23
+Hat 249,99 6
+Umbrella 149.99 28
+Jacket 399.99 0
+Jeans 349.99 9
+Boots 549.99 4
