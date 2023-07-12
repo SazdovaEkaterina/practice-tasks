@@ -1,0 +1,15 @@
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/bin/Debug/net7.0/DataProcessingApplication
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/bin/Debug/net7.0/DataProcessingApplication.deps.json
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/bin/Debug/net7.0/DataProcessingApplication.runtimeconfig.json
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/bin/Debug/net7.0/DataProcessingApplication.dll
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/bin/Debug/net7.0/DataProcessingApplication.pdb
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.csproj.AssemblyReference.cache
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.AssemblyInfoInputs.cache
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.AssemblyInfo.cs
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.csproj.CoreCompileInputs.cache
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.dll
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/refint/DataProcessingApplication.dll
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.pdb
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/DataProcessingApplication.genruntimeconfig.cache
+/Users/ekaterinasazdova/Documents/GitHub/practice-tasks/DataProcessingApplication/obj/Debug/net7.0/ref/DataProcessingApplication.dll
