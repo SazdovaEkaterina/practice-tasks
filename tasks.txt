@@ -1,0 +1,71 @@
+1. EmployeeManagementApplication
+
+Object-oriented Programming Tasks
+
+Create a console application that will represent a hierarchical order in one company.
+The firm has employees and those employees can be: regular employee and supervisor.
+
+For every employee we keep record for their name, last name, date of birth, sector they are working at, years worked at the firm and pay per hour,
+
+The supervisor has the ability to change an employee's pay per hour amount.
+
+Every supervisor can view all his employees.
+
+For the supervisors we keep record also of their email.
+
+The salary of each employee is calculated so that the working hours are added by the supervisor. Before the employee is employed he choices in which currency his salary will be (EUR or USD)
+
+An employee receives a bonus of 10% if he is more than 18 months and 15% if he is more than 36 months at the company.
+
+The supervisor needs to view all the employees that are newcomers meaning in the company less than 3 months, if the employee is less than 3 months the working hours are fixed if not the supervisor can change the working hours of an employee,
+
+The employee can be moved by the supervisor to another sector and be a responsibility to another supervisor.
+
+In the first three months the employee can resign. In other cases he can give 1 week notice to the supervisor via email that he is leaving the company.
+Every employee should have his own inventory
+	Regular employee should be able to borrow items from the supervisor
+	Supervisor should be able to give items to the regular employee
+Every employee can request a sick day. When calculating the bonus if the employee in the timeframe of the last 3 months has less than 3 sick days he receives additional 2%. If the employee has more than 12 sick days he receives (-2 %) bonus, after 3 months the sick days are being reseted. 
+Have fun, use knowledge and tricks that you gained from the second tutorial OOP. 
+There will be a scheduled demo Tuesday (07.06.2023) that you will present this task between the C# interns and mentors
+
+
+2. DataProcessingApplication
+
+Exercise 0: Data Processing Pipeline
+
+You are working on a data processing pipeline that involves several tasks to transform and analyze data. Each task represents a specific operation or analysis step, and they need to be executed in a specific order with some concurrency.
+
+Task 1: Data Ingestion
+
+This task takes around 5 seconds to complete, and can be started immediately.
+
+Task 2: Data Preprocessing
+
+This task prepares the data (around 10 sec), and can be started immediately after Task 1 completes.
+
+Task 3: Parallel Data Processing
+
+The task 3 is parsing and processing all information. This task can run concurrently with Task 4.
+
+Task 4: Data Analysis
+
+Perform statistical analysis on the preprocessed data. This task can be started immediately after Task 2 completes and must finish before Task 5 starts.
+
+Task 5: Data Output
+
+Save the processed data to an output file or database. This task should start only after both Task 3 and Task 4 have completed.
+
+
+3. ImageProcessingApplication
+
+Exercise 1:
+
+You are challenged with developing an image processing application that can apply various filters to images. The application should be able to process multiple images concurrently using threads and tasks.
+
+You need to implement a mechanism so you can apply filters to an image. Filter gets around 2-3 seconds to be applied . The supported filters are: "Grayscale", "Sepia", and "Blur". 
+You should have list of 10 images, for each image you should choose random filter and apply it. Applying of the filters should happen simultaneously and once all images have filters applied you should print out which filter the image has.
+
+Additionally when the processing of the image is done, you should group them and apply brightness (this operation take around 2sec to finish). For Grayscale you should apply 10, for Sepia -5 and for Blur 0. Each of the groups can run simultaneously, but each item of the group should run after the previous one is finished.
+
+After processing all the images, print a message indicating the completion of the entire task.
