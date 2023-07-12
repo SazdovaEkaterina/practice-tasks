@@ -25,9 +25,7 @@ In the first three months the employee can resign. In other cases he can give 1 
 Every employee should have his own inventory
 	Regular employee should be able to borrow items from the supervisor
 	Supervisor should be able to give items to the regular employee
-Every employee can request a sick day. When calculating the bonus if the employee in the timeframe of the last 3 months has less than 3 sick days he receives additional 2%. If the employee has more than 12 sick days he receives (-2 %) bonus, after 3 months the sick days are being reseted. 
-Have fun, use knowledge and tricks that you gained from the second tutorial OOP. 
-There will be a scheduled demo Tuesday (07.06.2023) that you will present this task between the C# interns and mentors
+Every employee can request a sick day. When calculating the bonus if the employee in the timeframe of the last 3 months has less than 3 sick days he receives additional 2%. If the employee has more than 12 sick days he receives (-2 %) bonus, after 3 months the sick days are being reseted.
 
 
 2. DataProcessingApplication
