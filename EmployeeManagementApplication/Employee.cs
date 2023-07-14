@@ -15,15 +15,15 @@ namespace Task1
         public int WorkingHours { get; set; }
         public List<Item> Inventory { get; set; }
         
-        private List<DateOnly> SickDays { get; set; }
+        protected List<DateOnly> SickDays { get; set; }
 
         protected DateTime DateEndedWorking { get; set; }
 
-        private static double _bonusEighteenMonths = 0.1;
-        private static double _bonusThirtySixMonths = 0.15;
+        private const double _bonusEighteenMonths = 0.1;
+        private const double _bonusThirtySixMonths = 0.15;
 
-        private static double _bonusLessThanThreeSickDays = 0.02;
-        private static double _bonusMoreThanTwelveSickDays = -0.02;
+        private const double _bonusLessThanThreeSickDays = 0.02;
+        private const double _bonusMoreThanTwelveSickDays = -0.02;
 
         public Employee(string name, string lastName, DateTime dateOfBirth, 
             DateTime dateStartedWorking, double payPerHour, Currency payCurrency, Sector sector)
@@ -39,7 +39,7 @@ namespace Task1
             SickDays = new List<DateOnly>();
         }
 
-        public int YearsWorkedAtTheFirm()
+        protected int YearsWorkedAtTheFirm()
         {
             var start = DateStartedWorking;
             var end = DateTime.Now;
@@ -70,8 +70,8 @@ namespace Task1
                 }
             }
         }
-        
-        public virtual double Salary()
+
+        protected double Salary()
         {
             double baseSalary =  WorkingHours * PayPerHour;
             double salary;
@@ -100,14 +100,9 @@ namespace Task1
             return salary;
         }
 
-        public void BorrowItemFromSupervisor(Supervisor supervisor, Item item)
+        public virtual void BorrowItemFromSupervisor(Supervisor supervisor, Item item)
         {
-            if (GetType() == typeof(Supervisor))
-            {
-                Console.WriteLine("You are a supervisor, so you cannot borrow items. " +
-                                  "Only regular employees can borrow items from their supervisors.");
-            }
-            else if (Sector != supervisor.Sector)
+            if (Sector != supervisor.Sector)
             {
                 Console.WriteLine($"{supervisor.Name} {supervisor.LastName} isn't your supervisor, " +
                                   $"you can't borrow items from them");
@@ -121,16 +116,9 @@ namespace Task1
             }
         }
 
-        public void RequestSickDaysFromSupervisor(Supervisor supervisor, List<DateOnly> sickDays)
+        public virtual void RequestSickDaysFromSupervisor(Supervisor supervisor, List<DateOnly> sickDays)
         {
-            
-            if (GetType() == typeof(Supervisor))
-            {
-                //if employee is a supervisor
-                SickDays.AddRange(sickDays);
-                Console.WriteLine($"Supervisor {Name} {LastName} has gotten {sickDays.Count} new sick days.");
-            }
-            else if (Sector != supervisor.Sector)
+            if (Sector != supervisor.Sector)
             {
                 //if requesting from other supervisor, that isn't their own
                 Console.WriteLine($"{supervisor.Name} {supervisor.LastName} isn't your supervisor, " +

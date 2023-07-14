@@ -119,5 +119,17 @@ namespace Task1
             stringBuilder.Append("\n");
             return stringBuilder.ToString();
         }
+
+        public override void BorrowItemFromSupervisor(Supervisor supervisor, Item item)
+        {
+            Console.WriteLine("You are a supervisor, so you cannot borrow items. " +
+                              "Only regular employees can borrow items from their supervisors.");
+        }
+
+        public override void RequestSickDaysFromSupervisor(Supervisor supervisor, List<DateOnly> sickDays)
+        {
+            SickDays.AddRange(sickDays);
+            Console.WriteLine($"Supervisor {Name} {LastName} has gotten {sickDays.Count} new sick days.");
+        }
     }
 }
