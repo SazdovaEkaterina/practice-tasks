@@ -7,23 +7,23 @@ namespace Task1
     {
         public string Name { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public DateTime DateStartedWorking { get; set; }
+        protected DateTime DateOfBirth { get; set; }
+        protected DateTime DateStartedWorking { get; set; }
         public double PayPerHour { get; set; }
-        public Currency PayCurrency { get; set; }
+        protected Currency PayCurrency { get; set; }
         public Sector Sector { get; set; }
         public int WorkingHours { get; set; }
         public List<Item> Inventory { get; set; }
         
-        public List<DateOnly> SickDays { get; set; }
-        
-        public DateTime DateEndedWorking { get; set; }
+        private List<DateOnly> SickDays { get; set; }
 
-        public static double Bonus18Months = 0.1;
-        public static double Bonus36Months = 0.15;
+        protected DateTime DateEndedWorking { get; set; }
 
-        public static double BonusLess3SickDays = 0.02;
-        public static double BonusMore12SickDays = -0.02;
+        private static double _bonusEighteenMonths = 0.1;
+        private static double _bonusThirtySixMonths = 0.15;
+
+        private static double _bonusLessThanThreeSickDays = 0.02;
+        private static double _bonusMoreThanTwelveSickDays = -0.02;
 
         public Employee(string name, string lastName, DateTime dateOfBirth, 
             DateTime dateStartedWorking, double payPerHour, Currency payCurrency, Sector sector)
@@ -71,7 +71,7 @@ namespace Task1
             }
         }
         
-        public double Salary()
+        public virtual double Salary()
         {
             double baseSalary =  WorkingHours * PayPerHour;
             double salary;
@@ -81,18 +81,18 @@ namespace Task1
 
             if (MonthsWorkedAtTheFirm() > 36)
             {
-                bonus += Bonus36Months;
+                bonus += _bonusThirtySixMonths;
             } else if (MonthsWorkedAtTheFirm() > 18)
             {
-                bonus += Bonus18Months;
+                bonus += _bonusEighteenMonths;
             }
 
             if (SickDays.Count < 3)
             {
-                bonus += BonusLess3SickDays;
+                bonus += _bonusLessThanThreeSickDays;
             } else if (SickDays.Count > 12)
             {
-                bonus += BonusMore12SickDays;
+                bonus += _bonusMoreThanTwelveSickDays;
             }
 
             salary = baseSalary + baseSalary * bonus;
