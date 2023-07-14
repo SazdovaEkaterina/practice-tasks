@@ -20,11 +20,11 @@ namespace Task1
 
         protected DateTime DateEndedWorking { get; set; }
 
-        private const double _bonusEighteenMonths = 0.1;
-        private const double _bonusThirtySixMonths = 0.15;
+        private const double BonusEighteenMonths = 0.1;
+        private const double BonusThirtySixMonths = 0.15;
 
-        private const double _bonusLessThanThreeSickDays = 0.02;
-        private const double _bonusMoreThanTwelveSickDays = -0.02;
+        private const double BonusLessThanThreeSickDays = 0.02;
+        private const double BonusMoreThanTwelveSickDays = -0.02;
 
         public Employee(string name, string lastName, DateTime dateOfBirth, 
             DateTime dateStartedWorking, double payPerHour, Currency payCurrency, Sector sector)
@@ -83,18 +83,18 @@ namespace Task1
 
             if (MonthsWorkedAtTheFirm() > 36)
             {
-                bonus += _bonusThirtySixMonths;
+                bonus += BonusThirtySixMonths;
             } else if (MonthsWorkedAtTheFirm() > 18)
             {
-                bonus += _bonusEighteenMonths;
+                bonus += BonusEighteenMonths;
             }
 
             if (SickDays.Count < 3)
             {
-                bonus += _bonusLessThanThreeSickDays;
+                bonus += BonusLessThanThreeSickDays;
             } else if (SickDays.Count > 12)
             {
-                bonus += _bonusMoreThanTwelveSickDays;
+                bonus += BonusMoreThanTwelveSickDays;
             }
 
             salary = baseSalary + baseSalary * bonus;
