@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Text;
 
 namespace Task1
@@ -76,7 +76,6 @@ namespace Task1
         protected double Salary()
         {
             double baseSalary =  WorkingHours * PayPerHour;
-            double salary;
             double bonus = 0;
             
             ResetSickDays();
@@ -97,7 +96,7 @@ namespace Task1
                 bonus += BonusMoreThanTwelveSickDays;
             }
 
-            salary = baseSalary + baseSalary * bonus;
+            var salary = baseSalary + baseSalary * bonus;
 
             return salary;
         }
