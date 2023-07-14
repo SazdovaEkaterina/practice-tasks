@@ -150,7 +150,7 @@ namespace Task1
         {
             if (Sector != supervisor.Sector)
             {
-                //if requesting from other supervisor, that isn't their own
+                // If requesting from other supervisor, that isn't their own
                 Console.WriteLine($"{supervisor.Name} {supervisor.LastName} isn't your supervisor, " +
                                   $"you can't request sick days from them");
             }

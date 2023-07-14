@@ -8,7 +8,7 @@ public class Firm
     public string Name { get; set; }
     public List<Sector> Sectors { get; set; }
     public Dictionary<Item, Employee> Inventory { get; set; }
-    //item e key, employee e value
+    // Item e key, employee e value
     public List<Item> Warehouse { get; set; }
     public Firm(string name)
     {
