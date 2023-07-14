@@ -62,11 +62,13 @@ public class DataProcessor
 
         foreach (var product in products)
         {
+            await Task.Delay(100);
             totalProfit += product.Price * product.Stock;
             if (product.Stock == 0)
             {
                 itemsOutOfStock++;
             }
+            Console.WriteLine($"In task 3: Product name: {product.Name} & total profit {totalProfit} and items out of stock: {itemsOutOfStock}");
         }
 
         stringBuilder.AppendLine($"Total profit that can be made from all items & stock: ${totalProfit:000.000.00}");
@@ -94,7 +96,9 @@ public class DataProcessor
         double averageItemPrice = 0;
         foreach (var product in products)
         {
+            await Task.Delay(100);
             averageItemPrice += product.Price;
+            Console.WriteLine($"In task 4: Product name: {product.Name} item price: {product.Price}");
         }
         averageItemPrice = averageItemPrice / products.Count;
         stringBuilder.AppendLine($"Average item price: ${averageItemPrice:0.00}");
