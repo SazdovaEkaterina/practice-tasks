@@ -5,6 +5,7 @@ namespace Task1
 {
     public class Employee
     {
+        public Guid Guid { get; set; } 
         public string Name { get; set; }
         public string LastName { get; set; }
         protected DateTime DateOfBirth { get; set; }
@@ -28,6 +29,7 @@ namespace Task1
         public Employee(string name, string lastName, DateTime dateOfBirth, 
             DateTime dateStartedWorking, double payPerHour, Currency payCurrency, Sector sector)
         {
+            Guid = Guid.NewGuid();
             Name = name;
             LastName = lastName;
             DateOfBirth = dateOfBirth;

@@ -4,6 +4,7 @@ namespace Task1;
 
 public class Firm
 {
+    public Guid Guid { get; set; }
     public string Name { get; set; }
     public List<Sector> Sectors { get; set; }
     public Dictionary<Item, Employee> Inventory { get; set; }
@@ -13,6 +14,7 @@ public class Firm
     {
         Name = name;
         Sectors = new List<Sector>();
+        Guid = Guid.NewGuid();
     }
 
     public void BorrowItem(Employee employee, Item item)

@@ -3,6 +3,7 @@ namespace Task1
 {
 	public class Sector
 	{
+		public Guid Guid { get; set; }
 		public string Name { get; set; }
 		
 		public List<Employee> Employees { get; set; }
@@ -12,6 +13,7 @@ namespace Task1
 		{
 			Name = name;
 			Employees = new List<Employee>();
+			Guid = Guid.NewGuid();
 		}
 
 		public override string ToString()
