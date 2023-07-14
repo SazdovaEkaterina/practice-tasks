@@ -16,6 +16,9 @@ namespace Task1
             Email = email;
         }
 
+        /// <summary>
+        /// Prints all the employees & employee details that are under the supervisor's supervision.
+        /// </summary>
         public void DisplayAllEmployees()
         {
             var stringBuilder = new StringBuilder();
@@ -31,6 +34,9 @@ namespace Task1
             Console.Write(stringBuilder.ToString());
         }
 
+        /// <summary>
+        /// Prints all the newcomers & employee details that are under the supervisor's supervision.
+        /// </summary>
         public void DisplayAllNewcomers()
         {
             var stringBuilder = new StringBuilder();
@@ -48,6 +54,11 @@ namespace Task1
             Console.Write(stringBuilder.ToString());
         }
 
+        /// <summary>
+        /// Changes the employee's working hours.
+        /// </summary>
+        /// <param name="employee">The employee whose hours are being changed.</param>
+        /// <param name="hours">The new hours value.</param>
         public void SetEmployeeHours(Employee employee, int hours)
         {
             if (employee.Sector != Sector)
@@ -65,6 +76,11 @@ namespace Task1
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <param name="payPerHour"></param>
         public void SetEmployeePayPerHour(Employee employee, double payPerHour)
         {
             if (employee.Sector != Sector)

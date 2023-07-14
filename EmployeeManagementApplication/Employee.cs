@@ -41,6 +41,10 @@ namespace Task1
             SickDays = new List<DateOnly>();
         }
 
+        /// <summary>
+        /// Calculates the number of full years worked at the firm.
+        /// </summary>
+        /// <returns>The number of years worked at the firm.</returns>
         protected int YearsWorkedAtTheFirm()
         {
             var start = DateStartedWorking;
@@ -50,6 +54,10 @@ namespace Task1
                      ((end.Month == start.Month) && (end.Day >= start.Day))) ? 1 : 0);
         }
 
+        /// <summary>
+        /// Calculates the number of full months worked at the firm.
+        /// </summary>
+        /// <returns>The number of months worked at the firm</returns>
         private int MonthsWorkedAtTheFirm()
         {
             var start = DateStartedWorking;
@@ -57,11 +65,18 @@ namespace Task1
             return Math.Abs(12 * (start.Year - end.Year) + start.Month - end.Month);
         }
 
+        /// <summary>
+        /// Checks if an employee is a newcomer i.e. has worked at the firm for less than 3 full months.
+        /// </summary>
+        /// <returns>Whether the employee is a newcomer.</returns>
         public bool IsNewcomer()
         {
             return MonthsWorkedAtTheFirm() < 3;
         }
 
+        /// <summary>
+        /// Resets the employee sick days i.e. deletes all sick days which are more than 3 months old.
+        /// </summary>
         public void ResetSickDays()
         {
             foreach (DateOnly sickDay in SickDays)
@@ -73,6 +88,10 @@ namespace Task1
             }
         }
 
+        /// <summary>
+        /// Calculates the employee's salary based on hourly pay, hours worked & bonuses.
+        /// </summary>
+        /// <returns>The salary of the employee.</returns>
         protected double Salary()
         {
             double baseSalary =  WorkingHours * PayPerHour;
@@ -101,6 +120,11 @@ namespace Task1
             return salary;
         }
 
+        /// <summary>
+        /// Borrowing an item from the supervisor.
+        /// </summary>
+        /// <param name="supervisor">The employee's supervisor.</param>
+        /// <param name="item">The item the employee wants to borrow.</param>
         public virtual void BorrowItemFromSupervisor(Supervisor supervisor, Item item)
         {
             if (Sector != supervisor.Sector)
@@ -117,6 +141,11 @@ namespace Task1
             }
         }
 
+        /// <summary>
+        /// Requesting a list of sick days from the supervisor.
+        /// </summary>
+        /// <param name="supervisor">The employee's supervisor.</param>
+        /// <param name="sickDays">The dates which they want to take as sick days.</param>
         public virtual void RequestSickDaysFromSupervisor(Supervisor supervisor, List<DateOnly> sickDays)
         {
             if (Sector != supervisor.Sector)
@@ -133,6 +162,10 @@ namespace Task1
             }
         }
 
+        /// <summary>
+        /// Transferring the employee to another sector.
+        /// </summary>
+        /// <param name="otherSector">The sector to which the employee is transferring to.</param>
         public void TransferToAnotherSector(Sector otherSector)
         {
             this.Sector.Employees.Remove(this);
@@ -141,6 +174,9 @@ namespace Task1
             Console.WriteLine($"Employee {Name} {LastName} has transferred to {otherSector}");
         }
 
+        /// <summary>
+        /// Employee resigns from the firm.
+        /// </summary>
         public void Resign()
         {
             if (IsNewcomer())
