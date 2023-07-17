@@ -3,3 +3,15 @@
 *.pdb
 .DS_Store
 *.cache
+
+EmployeeManagementApplication/obj/
+EmployeeManagementApplication/bin/
+EmployeeManagementApplication/.idea/
+
+DataProcessingApplication/obj/
+DataProcessingApplication/bin/
+DataProcessingApplication/.idea/
+
+ImageProcessingApplication/obj/
+ImageProcessingApplication/bin/
+ImageProcessingApplication/.idea/
